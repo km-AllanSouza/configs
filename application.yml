@@ -14,8 +14,8 @@ management:
     health:
       show-details: always
 info:
-  author: Adriano V. Santos
-  mail: adrianovs.info@gmail.com
+  author: Allan Medeiros
+  mail: km.allansouza@gmail.com
 server:
   port: ${PORT:9999}
 message: Mensagem generica
