@@ -1,0 +1,15 @@
+server:
+  port: ${PORT:8080}
+  
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: AnimalRoute
+          uri: lb://animal-service
+          predicates:
+            - Path=/animals/**
+        - id: SpecieRoute
+          uri: lb://specie-service
+          predicates:
+            - Path=/species/**
