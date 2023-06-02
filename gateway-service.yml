@@ -5,11 +5,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: AnimalRoute
-          uri: lb://animal-service
+        - id: CatalogRoute
+          uri: lb://catalog-service
           predicates:
-            - Path=/animals/**
-        - id: SpecieRoute
-          uri: lb://specie-service
+            - Path=/catalogs/**
+        - id: MovieRoute
+          uri: lb://movie-serice
           predicates:
-            - Path=/species/**
+            - Path=/movies/**
