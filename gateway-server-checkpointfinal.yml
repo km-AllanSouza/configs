@@ -1,0 +1,24 @@
+server:
+  port: ${PORT:8080}
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: catalogRoute
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/catalog-api/**
+        - id: movieRoute
+          uri: lb://MOVIE-SERVICE
+          predicates:
+            - Path=/movie-api/**
+        - id: serieRoute
+          uri: lb://SERIE-SERVICE
+          predicates:
+            - Path=/serie-api/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: apigateway
+                fallbackUri: forward:/fallback/usuarioFallback
+                
